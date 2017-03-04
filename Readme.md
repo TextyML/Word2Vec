@@ -4,6 +4,7 @@ Der Client verfügt über ein eigenes Interface um mit gensim zu interagieren, d
 
 # Server starten
 In der server.py den Host und Ports anpassen (verbesserungswürdig).
+Zudem muss ein vortrainiertes Word2Vec Modell im Verzeichnis als `model.bin.gz` vorhanden sein.
 
 In der Konsole ausführen:
 ```bash
