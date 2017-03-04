@@ -1,8 +1,5 @@
-import gensim
-import os
 import socket
 import ast
-import json
 
 
 def build_request(method, parameter):
@@ -46,25 +43,25 @@ class Word2Vec(object):
         return self.receive()
 
     def most_similar(self, positive=[], negative=[], topn=10, restrict_vocab=None, indexer=None):
-        self.send(build_request("most_similar", locals()))
+        self.send(build_request("most_similar", self.getparams(locals())))
         return self.receive()
 
     def wmdistance(self, document1, document2):
-        self.send(build_request("wmdistance", locals()))
+        self.send(build_request("wmdistance", self.getparams(locals())))
         return self.receive()
 
     def similar_by_vector(self, vector, topn=10, restrict_vocab=None):
-        self.send(build_request("similar_by_vector", locals()))
+        self.send(build_request("similar_by_vector", self.getparams(locals())))
         return self.receive()
 
     def n_similarity(self, ws1, ws2):
-        self.send(build_request("n_similarity", locals()))
+        self.send(build_request("n_similarity", self.getparams(locals())))
         return self.receive()
 
     def similarity(self, w1, w2):
-        self.send(build_request("similarity", locals()))
+        self.send(build_request("similarity", self.getparams(locals())))
         return self.receive()
 
     def most_similar_cosmul(self, positive=[], negative=[], topn=10):
-        self.send(build_request("most_similar_cosmul", locals()))
+        self.send(build_request("most_similar_cosmul", self.getparams(locals())))
         return self.receive()
