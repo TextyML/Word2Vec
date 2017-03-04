@@ -31,7 +31,6 @@ class Word2Vec(object):
             del parameter['self']
         except KeyError:
             pass
-
         return parameter
 
     def doesnt_match(self, words):
