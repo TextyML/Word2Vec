@@ -24,7 +24,11 @@ class Word2Vec(object):
 
     def receive(self):
         data = self._sock.recv(8192).decode('utf8')
-        return ast.literal_eval(data)
+        try:
+            result = ast.literal_eval(data)
+        except ValueError:
+            result = data
+        return result
 
     def getparams(self, parameter):
         try:
